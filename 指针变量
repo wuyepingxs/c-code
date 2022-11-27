@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+struct book
+{
+	char name[40];
+	short price;
+};
+
+
+  int main()
+{
+	  struct book aa1 = { "C语言程序设计", 55 };
+	  struct book*pb = &aa1;
+	  printf("书名:%s\n", pb->name);
+	  printf("价格：%d元\n\n",pb->price);
+	  aa1.price = 66;
+	  strcpy(aa1.name, "C++"); //aa1.name="C++",是错误的，数组的本质是一个地址
+	  printf("修改后的书名:%s\n",aa1.name);
+	  printf("修改后的价格:%d元\n\n", pb->price);
+
+	 
+
+
+	  }
+//书名:C语言程序设计
+	//价格：55元
+//	修改后的价格为66
