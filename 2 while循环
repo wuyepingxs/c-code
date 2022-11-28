@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int i = 1;
+	while (10 >= i)
+	{
+		printf("%d", i);
+		i++;
+	}
+	return 0;
+}
+//在屏幕打印1-10的数字
+
+
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int i = 1;
+	while (10 >= i)
+	{
+		if (i == 5)
+			continue;
+		printf("%d", i);
+		i++;
+	}
+	return 0;
+}//结果是 1234+闪动的光标（无限循环continue 之前的内容， 终止本次循环，跳到下一次循环入口）
+
+
+
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int ch = getchar();
+	while ((ch = getchar()) != EOF)//ctrl+z 输入后 终止
+	{
+		putchar(ch);
+	}
+
+	
+	return 0;
+}
