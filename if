@@ -1,0 +1,14 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int a = 10;
+	if (a < 11)
+		printf("a太小了");
+	else if (a <12)
+		printf("a still too small");
+	else
+	printf("he he");
+	return 0;
+}
+//结果是a太小了，if语句 只能输出一个结果 然后终止。
