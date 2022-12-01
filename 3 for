@@ -105,3 +105,31 @@ int main()
 	return 0;
 }
 //寻找一个有序数组中具体某个数字。如果找得到，显示下标；找不到，结果就是找不到了
+
+
+
+//任务：逐渐显示 weicome to bit!!!!!!!，####################从两边向中间渐变。
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<windows.h>
+#include<stdlib.h>
+
+int main()
+{
+	char arr1[] = "welcome to bit !!!!!!!";
+	char arr2[] = "######################";
+	int left = 0;
+	int right = sizeof(arr1) / sizeof(arr1[0]) - 2;
+	//  strlen(arr1)-1;也行,需 #include<string.h>
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+        printf("%s\n", arr2);
+		Sleep(200);
+		system("cls");//执行系统命令的一个函数：cls-清空屏幕。
+		left++;
+		right--;
+	}
+	return 0;
+}
