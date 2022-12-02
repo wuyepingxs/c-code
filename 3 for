@@ -92,15 +92,16 @@ int main()
 		{
 			left = mid + 1;
 		}
-		else
+		else//如果找个这个数了，就有arr[某个下标]==n，前面的>  < 都没有一定是==n。此时，左右下标重叠，mid也等于左右下标。
 		{
 			printf("找到了，下标是%d\n", mid);//当目标数字==k时
 			break;                              //这个过程中mid就是对应数字的下标。
 		}
-		if (left>right)
-		{
-			printf("找不到了\n");
-		}
+		
+	}
+if (left>right)
+       {
+	printf("找不到了\n");
 	}
 	return 0;
 }
