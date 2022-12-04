@@ -185,25 +185,25 @@ int main()
 }
 
 
-//制作猜数字游戏
+//制作猜数字游戏，用时间戳生成随机初始值,
 #define _CRT_SECURE_NO_WARNINGS
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-void menu()//菜单界面
+#include<stdlib.h>  //rand()
+#include<time.h>    //time
+void menu()        //菜单界面
 {
 	printf("###########################\n");
 	printf("####   1.play  0.exit  ####\n");
 	printf("###########################\n");
 }
-//RAND_MAX 32767，rand()取0~32767之间任意值
+                           //RAND_MAX 32767，rand()取0~32767之间任意值，伪随机
 void game()//游戏程序
 {
 	int ret = 0;
 	int guess = 0;
-	ret=rand()%100+1;//库函数，<stdlib.h>的。
-	while (1)
+	ret = rand()%100+1;//库函数rand()，<stdlib.h>的。
+	while (1)//恒为真，只有猜对了才能退出游戏
 	{
 		printf("请输入数字:>");
 		scanf("%d", &guess);
@@ -217,8 +217,8 @@ void game()//游戏程序
 		}
 		else
 		{
-			printf("恭喜你，猜对了\n");
-			break;
+			printf("恭喜你，猜对了\n\n");
+			break;//跳出while循环
 		}
 	}
 	
@@ -226,7 +226,7 @@ void game()//游戏程序
 int main()
 {
 	int input = 0; 
-	//srand(time);//拿时间戳设置随机数设置起点
+	srand((unsigned int)time(NULL));//拿时间戳设置随机数设置起点,死记
 	do{
 		menu();
 		printf("请选择:>");
