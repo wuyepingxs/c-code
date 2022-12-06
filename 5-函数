@@ -296,3 +296,41 @@ int main()
 		return 0;
 	
 }
+
+
+//重要@@@@@@@@     用递归，求阶乘 
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+int fac(int n)//n每次都会-1，所以每次递归都有-1，放参数里更合适
+               //由于是阶乘，所以相邻的返回值要相乘。
+			    //由于是递归，每次收回一个函数时，这个函数充当了中转值。1充当了条件
+				//递归和循环 某些时候可以互相转换。
+{
+	if (n <= 1)
+		return 1;
+	else
+		return n*fac(n - 1);
+
+}
+
+int fac2(int n)
+{
+	int i = 0;
+	int ret = 1;
+	for (i = 1; i <= n; i++)
+	{
+		ret = ret*i;
+	}
+	return ret;
+}
+int main()
+{
+
+	int n = 10;
+	scanf("%d", &n);
+	printf("%d", fac2(n));//此处可修改 fac 加或者不加 2 ，切换函数
+	
+		return 0;
+	
+}
