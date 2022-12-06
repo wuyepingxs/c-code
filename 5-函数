@@ -207,3 +207,92 @@ int main()
 }
 //printf()返回值是 ()内字符个数。
 //结果4321
+
+
+
+//递归
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+void print(int n)
+{
+	if (n > 9)
+	{
+		print(n / 10);
+	}
+	printf("%d ", n % 10);
+
+}
+int main()
+{
+
+		int num = 1234567;
+		print(num);
+		return 0;
+	
+}//打印结果 1 2 3 4 5 6 7 
+
+
+//不允许创建临时变量，求字符串长度。(此处创建了临时变量)
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+
+int my_strlen(char* str) //str是指针变量，存放地址。计算字符串长度，应该返回一个int
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+int main()
+{
+	char arr[] = { "bit^^^^^^^^^" };
+	int len = my_strlen(arr);
+	//数组传参 传过去的不是整个数组
+	//而是 第一个元素的 地址  
+	printf("%d", len);
+	
+		return 0;
+	
+}
+
+
+
+//重要 @@@@@@@@不允许创建临时变量，求字符串长度，用递归，大事化小。
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+
+//int my_strlen(char* str) //str是指针变量，存放地址。计算字符串长度，应该返回一个int
+//{
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+		return 1 + my_strlen(str+1);//用+号 ，让每次的返回值 加起来。指针变量标号不能用++
+	else
+	    return 0;
+}
+int main()
+{
+	char arr[] = { "bit#######" };
+	int len = my_strlen(arr);
+	//数组传参 传过去的不是整个数组
+	//而是 第一个元素的 地址  
+	printf("%d", len);
+	
+		return 0;
+	
+}
