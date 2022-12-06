@@ -334,3 +334,66 @@ int main()
 		return 0;
 	
 }
+
+
+//重要@@@@@@@@     用递归，斐波那契数，效率低，要高 往下看
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int count = 3;
+int fib(int n)
+{
+	if (n == 3);//测试第三个斐波那契数 计算次数
+	{count++; }
+	if (n <=2)
+		return 1;
+	else
+		return fib(n - 1) + fib(n - 2);
+}
+int main()
+{
+    int n = 0;
+	scanf("%d", &n);
+	printf("%d\n", fib(n));
+	printf("%d\n", count);
+    return 0;
+	
+}
+//40
+//102334155
+//204668312 fib（3）计算次数
+
+
+//重要@@@@@@@@   斐波那契数，用循环更简单
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int fib(int n)
+{
+	int i = 0;
+	int a = 1;
+	int b = 1;
+	int c = 0;
+	if (n <= 2)
+	{
+		return 1;
+	}
+	else
+	{
+		while (n>2)//循环次数是n-2，优化后的结果。用for更容易理解。
+		{
+			c = a + b;
+			a = b;
+			b = c;
+			n--;
+		}
+		return c;
+	}
+}
+int main()
+{
+    int n = 0;
+	scanf("%d", &n);
+	printf("%d\n", fib(n));
+	
+    return 0;
+	
+}
