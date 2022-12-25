@@ -24,3 +24,22 @@ int main()
   printf("%d\n", s);
   return 0;
 }//答案：2 5
+
+
+//  问题代码：操作符 1优先级 2结合性 3控制求值顺序（&& ||   ？： ,）
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+
+	int fun()
+	{
+		static int count = 0;
+		return count++;
+	}
+
+	int main()
+	{
+		int answer;
+		answer = fun() - fun()*fun();//哪个fun先调用不知道，这是问题代码
+		printf("%d\n", answer);
+		return 0;
+	}
