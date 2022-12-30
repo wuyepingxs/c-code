@@ -67,3 +67,46 @@ int main()
 
 	return 0;
 }
+
+
+
+//   assert const帮助调式
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+
+//void my_strcpy(char*dest, char*src)
+//{
+//	while (*src !='\0')
+//	{
+//		*dest++ = *src++;
+//	}
+//	*dest = *src;//最后一步 把 \0 拷贝过去
+//
+//}
+
+
+//老司机 代码
+void my_strcpy(char*dest, const char*src)//如果传过来 空指针 NULL，这是非法的
+                                        //上一行括号里面 加const ，可报错 防止写反了
+{
+	assert(src != NULL);//断言    不符合条件 就会断言失败 就会报错 line21 有问题
+	assert(dest != NULL);//          第一个断言处 停止
+	while (*dest++ = *src++) //既拷贝了 \0 ，又停下了循环。\0为假， 字符串里没有0.
+	{             
+		;//先 *dest=*src,再 *dest++,*src++.
+	}
+	*dest = *src;//最后一步 把 \0 拷贝过去
+
+}
+
+int main()
+{
+	char arr1[10] = "xxx";
+	char arr2[] = "hello";
+	//strcpy(arr1, arr2);
+	my_strcpy(arr1, arr2);
+	printf("%s", arr1);
+	return 0;
+}
