@@ -109,3 +109,43 @@ int main()
 	printf("不同位数=%d\n", count);
 	return 0;
 }
+
+
+//获取n的二进制中的 奇数位 和 偶数位(不是0就，就是1）（每次打印一下就行了）
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int i = 0;
+	//00000000 00000000 00000000 00000000 
+	//偶数位 的数 ：  首位>>31来到最低位；倒数第二位>>1来到最低位
+	//奇数位 的数 ：  第二位>>30来到最低位；倒数第一位>>0来到最低位
+	for (i = 31; i >=1; i-=2)
+	{
+		printf("%d ", (n >> i) & 1);//偶数位的数 从左到右打印
+	}
+	printf("\n");
+	for (i = 30; i >= 0; i -= 2)
+	{
+		printf("%d ", (n >> i) & 1);//奇数位的数 从左到右打印
+	}
+	return 0;
+}
+
+
+
+//不创建临时变量，交换两个变量的值
+#define _CRT_SECURE_NO_WARNINGS 
+#include<stdio.h>
+int main()
+{
+	int a = 256;
+	int b = 20;
+	a = a^b;
+	b = a^b;
+	a = a^b;
+	return 0;
+
+}
