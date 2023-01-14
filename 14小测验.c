@@ -122,3 +122,24 @@ int main()
 	printf("%s", arr);
 	return 0;
 }
+
+
+
+//讲义109 数组越界访问 变量栈区存储 由高到低 ，数组下标增长 地址增长
+//release版本 无死循环
+int main()
+{
+	int i = 0;
+	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	printf("%p\n",& i);
+	printf("%p\n", &arr[9]);
+
+	
+
+	/*for (i = 0; i <= 12; i++)
+	{
+		arr[i] = 0;
+		printf("hehe\n");
+	}*/
+	return 0;
+}
